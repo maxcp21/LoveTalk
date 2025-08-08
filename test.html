@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>CORS Test</title>
+</head>
+<body>
+  <script>
+    fetch('https://api.uomg.com/api/rand.qinghua?format=json')
+      .then(response => {
+        console.log('Status:', response.status);
+        console.log('Response Headers:');
+        response.headers.forEach((value, key) => {
+          console.log(`${key}: ${value}`);
+        });
+        return response.text();
+      })
+      .then(text => {
+        console.log('Body:', text);
+      })
+      .catch(err => {
+        console.error('Fetch failed:', err);
+      });
+  </script>
+</body>
+</html>
